@@ -1,0 +1,302 @@
+.TH TMUZIKA 1 "Децембар 2025" "tmuzika 1.1" "Корисничке команде"
+.SH NAME
+tmuzika \- терминални музички плејер са интегрисаним фајл менаџером, плејлистом и CLI подршком
+
+.SH SYNOPSIS
+.B tmuzika
+.RI [ опције ] 
+.TP
+.B -p <фајл> или <Фасцикла/> или <m3u>
+Пусти један аудио фајл или учитај фасциклу или учитај m3u плејлисту.
+.TP
+.B -r <url>
+Пусти радио станицу или пусти m3u радио листу.
+
+.SH DESCRIPTION
+.B tmuzika
+је терминални музички плејер написан у C програмском језику, користи ncurses за интерфејс и GStreamer за репродукцију звука.  
+Садржи интегрисани фајл менаџер, подршку за плејлисте, управљање преко тастатуре, CLI режим, обележиваче (bookmarks) и потпуну међународну подршку (i18n).
+
+Интерфејс је дизајниран за ефикасну навигацију тастатуром.  
+Фајл менаџер омогућава додавање појединачних фајлова или **целих фолдера са свом музиком унутар**.
+
+---
+
+.SH FEATURES
+.TP
+.B Репродукција звука
+Пуштање појединачних аудио фајлова или плејлиста (.m3u).
+
+.TP
+.B Фајл менаџер
+Преглед директоријума, копирање, сечење, лепљење, преименовање, брисање фајлова, undo операције, претрага, управљање обележивачима и додавање целих фолдера са музиком.
+
+.TP
+.B Плејлисте
+Снимање/учитавање m3u плејлиста, скок на тренутну песму, брисање песама и опције репитације.
+
+.TP
+.B CLI режим
+Пуштање песме, радио станице или плејлисте директно из терминала:
+.RS
+$ tmuzika -p песма.mp3  
+$ tmuzika -p плејлиста.m3u
+$ tmuzika -p фасцикла/  
+$ tmuzika -r урл-радио.станица
+$ tmuzika -r радио.m3u  
+$ tmuzika -h
+$ tmuzika --play песма.mp3  
+$ tmuzika --play плејлиста.m3u
+$ tmuzika --play фасцикла/  
+$ tmuzika --radio урл-радио.станица
+$ tmuzika --radio радио.m3u  
+$ tmuzika --help    
+.RE
+
+.TP
+.B Контрола тастатуром
+Све функције су доступне преко интуитивних тастерских комбинација.
+
+.TP
+.B Међународна подршка
+Подржава више језика, укључујући енглески, српски ћирилицу и српски латиницу.
+
+.TP
+.B Conky интеграција
+tmuzika може да извезе информације о тренутној репродукцији у привремене фајлове у /tmp.  
+Ови фајлови могу бити приказани спољним алатима као што је Conky:
+.RS
+/tmp/tmuzika_status
+/tmp/tmuzika_title
+/tmp/tmuzika_artist
+/tmp/tmuzika_album
+/tmp/tmuzika_track
+/tmp/tmuzika_elapsed
+/tmp/tmuzika_length
+.RE
+.TP
+Пример Conky скрипта:
+.RS
+TEXT
+${if_running tmuzika}
+${if_match "${env LANG}" "sr_RS.UTF-8"}
+• Слушам: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Извођач: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Албум: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Трака бр.: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Преостало: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}${if_match "${env LANG}" "sr_RS@latin.UTF-8"}
+• Slušam: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Izvođač: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Numera: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Vreme: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}
+• Now playing: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Artist: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Track: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Time: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${endif}
+${endif}
+${else}
+${endif}
+.RE
+.TP
+Напомена: Conky мора бити инсталиран и покренут, а tmuzika мора репродуковати аудио.
+
+---
+
+.SH KEY BINDINGS
+
+.SS Репродукција
+.TP
+.B ENTER
+Пусти изабрану песму / радио станицу.
+.TP
+.B SPACE
+Пауза / наставак.
+.TP
+.B b
+Помери лево.
+.TP
+.B n
+Помери десно.
+.TP
+.B z
+Стоп репродукције.
+.TP
+.B d
+Додај радио станицу.
+.TP
+.B >
+Следећа песма / радио станицу.
+.TP
+.B <
+Претходна песма / радио станицу.
+.TP
+.B +
+Повећај јачину звука.
+.TP
+.B -
+Смањи јачину звука.
+.TP
+.B <-
+Врати 10 секунди уназад.
+.TP
+.B ->
+Прескочи 10 секунди напред.
+.TP
+.B s
+Претрага.
+.TP
+.B p
+Понови текућу песму.
+.TP
+.B l
+Понови целу плејлисту.
+.TP
+.B e
+Насумично.
+.TP
+.B r
+Радио мод.
+.TP
+.B m
+Менаџер датотека.
+.TP
+.B q
+Сачувај m3u листу.
+.TP
+.B u
+Учитај m3u листу / m3u радио листу.
+.TP
+.B v
+Иди на тренутну песму / радио станицу.
+.TP
+.B x
+Обриши песму / радио станицу са листе.
+.TP
+.B DELETE
+Обриши све песме / радио станице са листе.
+.TP
+.B HOME
+Иди на прву песму.
+.TP
+.B END
+Иди на последњу песму.
+.TP
+.B k
+Излаз из програма.
+
+.SS Фајл менаџер
+.TP
+.B ENTER
+Уђи у директоријум / додај песму / додај .m3u плејлисту / радио m3u.
+.TP
+.B BACKSPACE
+Врати се.
+.TP
+.B ctrl+h
+Прикажи/сакриј скривене фајлове.
+.TP
+.B f / F
+Додај фолдер / додај тренутни фолдер (сва музика унутар се додаје аутоматски).
+.TP
+.B m
+Изабери фајлове / фолдере.
+.TP
+.B ctrl+a
+Изабери све фајлове.
+.TP
+.B d
+Додај више фајлова.
+.TP
+.B s
+Претрага.
+.TP
+.B n
+Креирај нови фолдер.
+.TP
+.B t
+Креирај нови фајл.
+.TP
+.B F2
+Преименуј фајл / фолдер.
+.TP
+.B c
+Копирај.
+.TP
+.B x
+Исече.
+.TP
+.B v
+Залепи.
+.TP
+.B u
+Опозови последњу акцију (undo).
+.TP
+.B ctrl+p
+Промени дозволе фајла (chmod).
+.TP
+.B ctrl+o
+Отвори терминал.
+.TP
+.B DELETE
+Уклони фајл / фолдер.
+.TP
+.B ctrl+b
+Додај обележивач.
+.TP
+.B ctrl+d
+Уклони обележивач.
+.TP
+.B 1-9
+Иди на обележивач 1–9.
+.TP
+.B ESC
+Изађи из фајл менаџера.
+
+---
+
+.SH ENVIRONMENT
+.TP
+.B LANG, LC_ALL
+Користи се за одређивање језика интерфејса.
+
+.TP
+.B HOME/.tmuzika
+Кориснички конфигурациони и податачки директоријум (плејлисте, кеш, подешавања итд.).
+
+---
+
+.SH EXIT STATUS
+.TP
+.B 0
+Успешно извршење.
+.TP
+.B 1
+Дошло је до грешке.
+
+---
+
+.SH FILES
+.TP
+.I ~/.tmuzika/
+Кориснички конфигурациони и податачки директоријум (плејлисте, кеш, подешавања итд.).
+
+---
+
+.SH AUTHOR
+Ivan Janković
+
+---
+
+.SH LICENSE
+GNU General Public License v3.0 или новија.
+
+---
+
+.SH SEE ALSO
+.BR ncurses (3),
+.BR gstreamer (1)

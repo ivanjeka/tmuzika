@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=tmuzika
+Comment=terminalni muzicki plejer
+Exec=tmuzika
+Terminal=true
+Type=Application
+Categories=Audio;Music;AudioVideo;
+StartupNotify=false
+Icon=utilities-terminal
