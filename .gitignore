@@ -1,0 +1,51 @@
+# Build outputs
+tmuzika
+izgradnja/
+build/
+bin/
+
+# Object files
+*.o
+*.a
+*.so
+
+# Gettext compiled files
+*.mo
+
+# Temporary / swap files
+*~
+*.swp
+*.swo
+*.tmp
+
+# IDE / editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Debug / profiling
+gmon.out
+vgcore.*
+core
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Package files
+*.tar.gz
+*.tar.bz2
+*.zip
+
+# Autotools / CMake (if ever used)
+autom4te.cache/
+configure
+config.log
+config.status
+Makefile.in
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake

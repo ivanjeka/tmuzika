@@ -1,0 +1,312 @@
+.TH TMUZIKA 1 "March 2026" "tmuzika 1.1.2" "User Commands"
+.SH NAME
+tmuzika \- terminal music player with integrated file manager, playlist, and CLI support
+
+.SH SYNOPSIS
+.B tmuzika
+.RI [ options ] 
+.TP
+.B -p <file> or <folder/> or <m3u>
+Play a single audio file, load a folder, or load an M3U playlist.
+.TP
+.B -r <url>
+Play a radio station or load an M3U radio playlist.
+
+.SH DESCRIPTION
+.B tmuzika
+is a terminal-based music player written in C, using ncurses for the interface and GStreamer for audio playback.  
+It features an integrated file manager, playlist support, keyboard-driven controls, CLI mode, bookmarks, and full internationalization support (i18n).
+
+The interface is designed for efficient keyboard navigation.  
+The file manager supports adding single files or entire folders with all music inside.
+
+
+.SH FEATURES
+.TP
+.B Audio Playback
+Play individual audio files or playlists (.m3u).
+
+.TP
+.B File Manager
+Browse directories, copy, cut, paste, rename, delete files, undo operations, search, manage bookmarks, and add entire folders of music.
+
+.TP
+.B Playlist Management
+Save/load m3u playlists, jump to current song, delete songs, and repeat options.
+
+.TP
+.B CLI Mode
+Play a song, radio station or playlist directly from the terminal:
+.RS
+$ tmuzika -p song.mp3  
+$ tmuzika -p playlist.m3u
+$ tmuzika -p folder/  
+$ tmuzika -r url-radio.station
+$ tmuzika -r radio.m3u  
+$ tmuzika -h
+$ tmuzika --play song.mp3  
+$ tmuzika --play playlist.m3u
+$ tmuzika --play folder/  
+$ tmuzika --radio url-radio.station
+$ tmuzika --radio radio.m3u   
+$ tmuzika --help    
+.RE
+
+.TP
+.B Keyboard Control
+All actions are accessible via intuitive keybindings.
+
+.TP
+.B Internationalization
+Supports multiple languages, including English, Serbian Cyrillic, and Serbian Latin.
+
+.TP
+.B Conky Integration
+tmuzika can export current playback information to temporary files in /tmp.  
+These files can be displayed by external tools like Conky:
+.RS
+/tmp/tmuzika_status
+/tmp/tmuzika_title
+/tmp/tmuzika_artist
+/tmp/tmuzika_album
+/tmp/tmuzika_track
+/tmp/tmuzika_elapsed
+/tmp/tmuzika_length
+.RE
+.TP
+Example Conky snippet:
+.RS
+TEXT
+${if_running tmuzika}
+${if_match "${env LANG}" "sr_RS.UTF-8"}
+• Слушам: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Извођач: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Албум: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Трака бр.: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Преостало: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}${if_match "${env LANG}" "sr_RS@latin.UTF-8"}
+• Slušam: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Izvođač: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Numera: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Vreme: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}
+• Now playing: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Artist: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Track: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Time: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${endif}
+${endif}
+${else}
+${endif}
+.RE
+.TP
+Note: Conky must be installed and running, and tmuzika must be playing audio.
+
+
+.SH KEY BINDINGS
+
+.SS General Playback
+.TP
+.B ENTER
+Play selected song / radio station.
+.TP
+.B SPACE
+Pause / continue.
+.TP
+.B [
+Scroll left.
+.TP
+.B ]
+Scroll right.
+.TP
+.B z
+Stop playback.
+.TP
+.B d
+Add radio station.
+.TP
+.B >
+Next song / radio station.
+.TP
+.B <
+Previous song / radio station.
+.TP
+.B +
+Volume up.
+.TP
+.B -
+Volume down.
+.TP
+.B <-
+Rewind 10s.
+.TP
+.B ->
+Forward 10s.
+.TP
+.B s
+Search.
+.TP
+.B o
+Open configuration menu (colors / key bindings) from any mode
+.TP
+.B p
+Repeat current song.
+.TP
+.B l
+Repeat entire playlist.
+.TP
+.B e
+Shuffle.
+.TP
+.B r
+Radio mode.
+.TP
+.B m
+File manager.
+.TP
+.B q
+Save m3u playlist.
+.TP
+.B u
+Load m3u playlist / m3u radio playlist.
+.TP
+.B v
+Go to the current song / radio station.
+.TP
+.B x
+Delete song / radio station from playlist.
+.TP
+.B DELETE
+Delete all songs / radio station from playlist.
+.TP
+.B HOME
+Go to the first song.
+.TP
+.B END
+Go to the last song.
+.TP
+.B ?
+Display help screen for current mode
+.TP
+.B k
+Exit program.
+
+.SS File Manager
+.TP
+.B ENTER
+Enter directory / add song / add .m3u playlist / radio m3u.
+.TP
+.B BACKSPACE
+Go back.
+.TP
+.B ctrl+h
+Toggle hidden files.
+.TP
+.B f / F
+Add folder / add current folder (all music inside is added automatically).
+.TP
+.B m
+Select files / folders.
+.TP
+.B ctrl+a
+Select all files.
+.TP
+.B d
+Add multiple files.
+.TP
+.B s
+Search.
+.TP
+.B o
+Open configuration menu (colors / key bindings) from any mode
+.TP
+.B h
+Reset key
+.TP
+.B b
+Reset color
+.TP
+.B ctrl+n
+Create new folder.
+.TP
+.B ctrl+t
+Create new file.
+.TP
+.B F2
+Rename file / folder.
+.TP
+.B c
+Copy.
+.TP
+.B x
+Cut.
+.TP
+.B v
+Paste.
+.TP
+.B u
+Undo last action.
+.TP
+.B ctrl+p
+Change file permissions (chmod).
+.TP
+.B ctrl+o
+Open terminal.
+.TP
+.B DELETE
+Remove file / folder.
+.TP
+.B ctrl+b
+Add bookmark.
+.TP
+.B ctrl+d
+Remove bookmark.
+.TP
+.B 1-9
+Go to bookmark 1–9.
+.TP
+.B ?
+Display help screen for current mode
+.TP
+.B ESC
+Quit file manager.
+
+
+.SH ENVIRONMENT
+.TP
+.B LANG, LC_ALL
+Used to determine interface language.
+
+.TP
+.B HOME/.tmuzika
+User configuration and data directory (playlists, cache, settings, etc.).
+
+
+.SH EXIT STATUS
+.TP
+.B 0
+Successful execution.
+.TP
+.B 1
+An error occurred.
+
+
+.SH FILES
+.TP
+.I ~/.tmuzika/
+User configuration and data directory (playlists, cache, settings, etc.).
+
+
+.SH AUTHOR
+Ivan Janković
+
+
+.SH LICENSE
+GNU General Public License v3.0 or later.
+
+
+.SH SEE ALSO
+.BR ncurses (3),
+.BR gstreamer (1)

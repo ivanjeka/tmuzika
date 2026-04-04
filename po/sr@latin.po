@@ -1,0 +1,796 @@
+# Serbian translations for tmuzika package.
+# Copyright (C) 2026 THE tmuzika'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the tmuzika package.
+#  <ivan.jankovic.unix@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tmuzika 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-07 15:39+0100\n"
+"PO-Revision-Date: 2026-01-07 15:40+0100\n"
+"Last-Translator:  <ivan.jankovic.unix@gmail.com>\n"
+"Language-Team: Serbian <(nothing)>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: main.c:651
+msgid " ENTER/SPACE:play/pause ↑↓:move m:manager s:search k:exit "
+msgstr " ENTER/SPACE:pusti/pauza ↑↓:pomeraj m:menadžer s:traži :zatvori "
+
+#: main.c:695
+msgid " ENTER:confirm  ESC:quit "
+msgstr "ENTER:potvrdi  ESC:poništi "
+
+#: main.c:714
+msgid " ESC:quit ↑↓:scroll bottom panel PgUp/PgDn:scroll top panel "
+msgstr " ESC:izađi ↑↓:pomeranje donjeg panela PgUp/PgDn:pomeranje gornjeg panela "
+
+#: main.c:756
+msgid " ENTER:open/add BACKSPACE:back f:add folder o:options ?:help ESC:quit "
+msgstr " ENTER:otvori/dodaj BACKSPACE:nazad f:dodaj fasciklu o:opcije ?:pomoć  ESC:izađi "
+
+#: main.c:857
+msgid " Delete:bookmark (1–9), ESC:cancel "
+msgstr " Delete:obečeživač (1–9), ESC:poništi "
+
+#: main.c:888
+#, c-format
+msgid " Enter new permissions (octal, e.g. 755) for \"%s\": "
+msgstr " Unesi nove dozvole (npr. 755) za \"%s\": "
+
+#: main.c:897
+#, c-format
+msgid " Permissions updated to %o "
+msgstr " Dozvola promenjena za %o "
+
+#: main.c:1013
+msgid "File Manager"
+msgstr "Menadžer Datoteka"
+
+#: main.c:1191
+#, c-format
+msgid " %s playlist is loaded "
+msgstr " %s lista za slušanje je učitana "
+
+#: main.c:1199 main.c:1205 main.c:1211 main.c:1217 main.c:1223 main.c:1229
+#: main.c:1235
+#, c-format
+msgid " %s song has been added to the playlist "
+msgstr " %s pesma je dodata u listu za slušanje "
+
+#: main.c:1250
+#, c-format
+msgid " %s is not editable "
+msgstr " %s datoteka se ne može uređivati "
+
+#: main.c:1279 main.c:1294 main.c:2417
+#, c-format
+msgid " Folder \"%s\" does not contain an audio file "
+msgstr " Fascikla \"%s\" ne sadrži audio datoteke "
+
+#: main.c:1287 main.c:1300
+#, c-format
+msgid " Folder \"%s\" is loaded "
+msgstr " Fascikla \"%s\" je učitana "
+
+#: main.c:1312
+msgid " Enter new folder name: "
+msgstr " Unesi ime fascikle: "
+
+#: main.c:1323
+#, c-format
+msgid " Folder \"%s\" created "
+msgstr " Fascikla \"%s\" je napravljena "
+
+#: main.c:1326
+#, c-format
+msgid " Failed to create folder \"%s\" "
+msgstr " Ne mogu da napravim fasciklu \"%s\" "
+
+#: main.c:1341
+msgid " Enter new text file name: "
+msgstr " Unesi ime datoteke: "
+
+#: main.c:1354
+#, c-format
+msgid " File \"%s\" created "
+msgstr " Datoteka \"%s\" je napravljen "
+
+#: main.c:1357
+#, c-format
+msgid " Failed to create file \"%s\" "
+msgstr " Ne mogu da napravim datoteku \"%s\" "
+
+#: main.c:1376
+#, c-format
+msgid " Delete \"%s\" ? (y/n) "
+msgstr " Obriši \"%s\" ? (d/n) "
+
+#: main.c:1405
+#, c-format
+msgid " Deleted \"%s\" (can undo) "
+msgstr " Obrisan \"%s\" (vrati obrisano) "
+
+#: main.c:1416
+#, c-format
+msgid " Deleted %d items (undo disabled) "
+msgstr " Obrisane %d stavke (ne može da se vrati) "
+
+#: main.c:1436
+msgid " Search file or folder: "
+msgstr " Traži datoteku ili fasciklu: "
+
+#: main.c:1503
+#, c-format
+msgid " No match for: %s "
+msgstr " Nema podudaranja: %s "
+
+#: main.c:1527
+#, c-format
+msgid " Copied %d items "
+msgstr " Kopirane %d stavke "
+
+#: main.c:1527
+#, c-format
+msgid " Cut %d items "
+msgstr " Isečene %d stavke "
+
+#: main.c:1537
+msgid " Clipboard empty "
+msgstr " Međumemorija je prazna "
+
+#: main.c:1602
+msgid " No supported terminal found! "
+msgstr " Nije pronađen podržani terminal "
+
+#: main.c:1621
+msgid " Failed to fork terminal process "
+msgstr " Nije uspelo terminalni proces "
+
+#: main.c:1628
+msgid " Nothing to undo "
+msgstr " Ništa za vraćanje "
+
+#: main.c:1637
+msgid " Undo copy "
+msgstr " Poništena kopija "
+
+#: main.c:1644
+msgid " Undo cut "
+msgstr " Poništeno sečenje "
+
+#: main.c:1651
+msgid " Undo delete "
+msgstr " Poništeno brisanje "
+
+#: main.c:1712
+#, c-format
+msgid " Rename \"%s\" to: "
+msgstr "  Preimenuj \"%s\" u:  "
+
+#: main.c:1721 main.c:1733
+msgid " Rename canceled "
+msgstr " Preimenovanje otkazano "
+
+#: main.c:1730
+msgid " File/folder exists. Overwrite? (y/n) "
+msgstr " Datoteka/fascikla postoji. Da li da se prebriše? (d/n) "
+
+#: main.c:1745
+#, c-format
+msgid " Renamed \"%s\" → \"%s\" "
+msgstr " Preimenovano \"%s\" → \"%s\" "
+
+#: main.c:1747
+#, c-format
+msgid " Failed to rename \"%s\" "
+msgstr " Preimenovanje \"%s\" nije uspelo "
+
+#: main.c:1767
+#, c-format
+msgid " Jumped to bookmark %d "
+msgstr " Prešao na obeleživač %d  "
+
+#: main.c:1769 main.c:1800
+#, c-format
+msgid " No bookmark at %d "
+msgstr " Nema obeleživača na %d "
+
+#: main.c:1780
+#, c-format
+msgid " Bookmark %d saved "
+msgstr " Obeleživač %d sačuvan "
+
+#: main.c:1785
+msgid " Maximum bookmarks reached "
+msgstr " Dostignut je maksimalan broj obeleživača "
+
+#: main.c:1798
+#, c-format
+msgid " Bookmark %d deleted "
+msgstr " Obeleživač %d je obrisan "
+
+#: main.c:1817
+msgid " Hidden files shown "
+msgstr " Skrivene datoteke su prikazani "
+
+#: main.c:1817
+msgid " Hidden files hidden "
+msgstr " Skrivene datoteke su ponovo sakrivene "
+
+#: main.c:1823
+msgid " No files selected "
+msgstr " Datoteka nije izabrana "
+
+#: main.c:1854
+#, c-format
+msgid " %d files added to playlist "
+msgstr " %d datoteka je dodat na listu za slušanje "
+
+#: main.c:1856
+msgid " No valid audio files selected "
+msgstr " Nije izabran ni jedana audio datoteka "
+
+#: main.c:1885
+msgid "tmuzika - terminal music player"
+msgstr "tmuzika - terminalni muzički plejer"
+
+#: main.c:1886
+msgid "? = help  o = config"
+msgstr "? = pomoć  o = opcije"
+
+#: main.c:1889
+msgid "PAUSE"
+msgstr "PAUZIRANO"
+
+#: main.c:1889
+msgid "PLAY"
+msgstr "PUŠTENO"
+
+#: main.c:1889
+msgid "STOP"
+msgstr "ZAUSTAVLjENO"
+
+#: main.c:1890
+#, c-format
+msgid "Volume: %.2f"
+msgstr "Jačina: %.2f"
+
+#: main.c:1891
+#, c-format
+msgid "Status: %-11s"
+msgstr "Status: %-11s"
+
+#: main.c:1893
+msgid "Repeat: SONG"
+msgstr "Ponavljanje: PESMA"
+
+#: main.c:1893
+msgid "Repeat: PLAYLIST"
+msgstr "Ponavljanje: LISTA"
+
+#: main.c:1893
+msgid "Repeat: OFF"
+msgstr "Ponavljanje: UGAŠENO"
+
+#: main.c:1904
+#, c-format
+msgid "Time: %s / %s"
+msgstr "Vreme: %s / %s"
+
+#: main.c:1924
+#, c-format
+msgid "Playlist songs: %d"
+msgstr "Lista pesama: %d"
+
+#: main.c:1955
+#, c-format
+msgid "Folder: %s"
+msgstr "Fascikla: %s"
+
+#: main.c:2153
+#, c-format
+msgid " GStreamer error: %s\n "
+msgstr " Greška GStreamer: %s\n "
+
+#: main.c:2174
+msgid "play song"
+msgstr "pusti pesmu"
+
+#: main.c:2175
+msgid "pause / continue"
+msgstr "pauziraj / nastavi"
+
+#: main.c:2176
+msgid "stop"
+msgstr "zaustavi"
+
+msgid "left / right"
+msgstr "levo / desno"
+
+#: main.c:2177
+msgid "next / previous"
+msgstr "sledeća / prethodna"
+
+#: main.c:2178
+msgid "volume"
+msgstr "jačina"
+
+#: main.c:2179
+msgid "seek +/- 10s"
+msgstr "premotaj +/- 10s"
+
+#: main.c:2180
+msgid "repeat song"
+msgstr "ponovi pesmu"
+
+#: main.c:2181
+msgid "repeat playlist"
+msgstr "ponovi listu pesama"
+
+#: main.c:2184
+msgid "shuffle"
+msgstr "nasumično puštanje"
+
+#: main.c:2182
+msgid "search"
+msgstr "traži"
+
+#: main.c:2183
+msgid "radio"
+msgstr "radio"
+
+#: main.c:2183
+msgid "file manager"
+msgstr "menadžer datoteka"
+
+#: main.c:2184
+msgid "save m3u"
+msgstr "sačuvaj m3u"
+
+#: main.c:2185
+msgid "load m3u"
+msgstr "učitaj m3u"
+
+#: main.c:2186
+msgid "go to the current song"
+msgstr "pređi na trenutnu pesmu"
+
+#: main.c:2187
+msgid "delete song"
+msgstr "obriši pesmu"
+
+#: main.c:2188
+msgid "delete all"
+msgstr "obriši sve"
+
+#: main.c:2189
+msgid "go to the first song"
+msgstr "pređi na prvu pesmu"
+
+#: main.c:2190
+msgid "go to the last song"
+msgstr "pređi na poslednju pesmu"
+
+#: main.c:2191
+msgid "exit"
+msgstr "zatvori program"
+
+#: main.c:2196
+msgid "FILE MANAGER"
+msgstr "MENADžER DATOTEKA"
+
+#: main.c:2197
+msgid " "
+msgstr " "
+
+#: main.c:2198
+msgid "- ENTER = enter / add song / add .m3u"
+msgstr "- ENTER = otvori / dodaj pesmu / dodaj .m3u"
+
+#: main.c:2199
+msgid "- BACKSPACE = back"
+msgstr "- BACKSPACE = nazad"
+
+msgid "- [ / ] = left / right"
+msgstr "- [ / ] = levo / desno"
+
+#: main.c:2200
+msgid "- ctrl+h = toggle hidden files"
+msgstr "- ctrl+h = prikaži skrivene datoteke"
+
+#: main.c:2201
+msgid "- f/F = add folder / add current folder"
+msgstr "- f/F = dodaj fasciklu / trenutnu fasciklu"
+
+#: main.c:2202
+msgid "- m = select files / folders"
+msgstr "- m = obeleži datoteku / fasciklu"
+
+#: main.c:2203
+msgid "- ctrl+a = select all"
+msgstr "- ctrl+a = obeleži sve"
+
+#: main.c:2204
+msgid "- d = add multy files"
+msgstr "- d = dodaj više datoteka"
+
+#: main.c:2205
+msgid "- s = search"
+msgstr "- s = traži"
+
+#: main.c:2206
+msgid "- ctrl+n = new folder"
+msgstr "- ctrl+n = nova fascikla"
+
+#: main.c:2207
+msgid "- ctrl+t = new file"
+msgstr "- ctrl+t = nova datoteka"
+
+#: main.c:2208
+msgid "- F2 = rename file / folder"
+msgstr "- F2 = preimenuj datoteku / fasciklu"
+
+#: main.c:2209
+msgid "- c = copy"
+msgstr "- c = kopiraj"
+
+#: main.c:2210
+msgid "- x = cut"
+msgstr "- x = iseci"
+
+#: main.c:2211
+msgid "- v = paste"
+msgstr "- v = zalepi"
+
+#: main.c:2212
+msgid "- u = undo"
+msgstr "- u = vrati"
+
+#: main.c:2213
+msgid "- ctrl+p = change chmod"
+msgstr "- ctrl+p = promeni chmod"
+
+#: main.c:2214
+msgid "- ctrl+o = open terminal"
+msgstr "- ctrl+o = otvori terminal"
+
+#: main.c:2215
+msgid "- DELETE = remove file / folder"
+msgstr "- DELETE = obriši datoteku / fasciklu"
+
+#: main.c:2216
+msgid "- ctrl+b = add bookmarks"
+msgstr "- ctrl+b = dodaj obeleživač"
+
+#: main.c:2217
+msgid "- ctrl+d = remove bookmark"
+msgstr "- ctrl+d = obriši obeleživač"
+
+#: main.c:2218
+msgid "- NUMBER 1 - 9 = go to bookmarks"
+msgstr "- NUMBER 1 - 9 = pređi na obeleživač"
+
+#: main.c:2219
+msgid "- ESC = quit"
+msgstr "- ESC = izađi"
+
+#: main.c:2362
+#, c-format
+msgid " Playlist cannot be created\n "
+msgstr " Lista pesama ne može biti napravljena "
+
+#: main.c:2428
+#, c-format
+msgid " %s selected file is not a .m3u / audio file "
+msgstr " %s ižabrana datoteka nije .m3u / audio datoteka "
+
+#: main.c:2440
+#, c-format
+msgid " No audio files to play in: %s\n "
+msgstr " Nema audio datoteke za reprodukciju u: %s\n "
+
+#: main.c:2445
+#, c-format
+msgid " Path not found: %s\n "
+msgstr " Putanja nije pronađena: %s\n "
+
+#: main.c:2474
+msgid "Are you sure you want to exit? (y/N)"
+msgstr "Da li si siguran da želiš da zatvoriš program? (d/N)"
+
+#: main.c:2545
+msgid "Save (.m3u) playlist: "
+msgstr "Sačuvaj (.m3u) listu pesama: "
+
+#: main.c:2552
+msgid " .m3u playlist saved "
+msgstr " .m3u lista pesama je sačuvana "
+
+#: main.c:2567
+msgid "Load (.m3u) playlist: "
+msgstr "učitaj (.m3u) listu pesama: "
+
+#: main.c:2577
+#, c-format
+msgid " m3u playlist not found: %s "
+msgstr " m3u lista pesama nije pronađena: %s "
+
+#: main.c:2591
+#, c-format
+msgid " %s m3u playlist loaded "
+msgstr " %s m3u lista pesama je učitana "
+
+#: main.c:2622
+msgid "Search for a song, album or artist: "
+msgstr "Traži pesmu, album ili izviđača: "
+
+#: main.c:2667
+#, c-format
+msgid " Song not found: %s "
+msgstr " Pesma nije pronađena: %s "
+
+#: main.c:2690
+msgid "Are you sure you want to delete m3u? (y/N): "
+msgstr "Da li si siguran da želiš da obrišeš m3u? (d/N): "
+
+#: main.c:2709
+msgid " m3u playlist is empty "
+msgstr " m3u lista pesama je prazna "
+
+#: main.c:2730
+#, c-format
+msgid "Are you sure you want to delete song '%s'? (y/N): "
+msgstr "Da li si siguran da želiš da obrišeš pesmu '%s'? (d/N): "
+
+#: main.c:2753
+#, c-format
+msgid " The song '%s' has been deleted "
+msgstr " Pesma '%s' je obrisana "
+
+# -------------------- NOV PREVOD KOJI JE KASNIJE DODAT --------------------
+#: main.c:1252
+msgid " No editor found (nano/vim) "
+msgstr " Nije pronađen nijedan uređivač (nano/vim) "
+
+msgid "tmuzika — terminal music player\n\n"
+msgstr "tmuzika — terminalni muzički plejer\n\n"
+
+msgid "Usage:\n"
+msgstr "Upotreba:\n"
+
+msgid "  tmuzika [options]\n\n"
+msgstr "  tmuzika [opcije]\n\n"
+
+msgid "Options:\n"
+msgstr "Opcije:\n"
+
+msgid "  -p, --play <file>         Play a song or load an m3u playlist\n"
+msgstr "  -p, --play <datoteka>     Pusti pesmu ili učitaj m3u listu pesama\n"
+
+msgid "  -h, --help                Show this help message\n"
+msgstr "  -h, --help                Prikaži ovu poruku pomoći\n"
+
+msgid "\nAuthor: Ivan Janković — ivan.jankovic.unix@gmail.com\n"
+msgstr "\nAutor: Ivan Janković — ivan.jankovic.unix@gmail.com\n"
+
+msgid "License: GPL v3 or later\n"
+msgstr "Licenca: GPL v3 ili novija\n"
+
+msgid "1. Extract here"
+msgstr "1. Raspakuj ovde"
+
+msgid "2. Extract to..."
+msgstr "2. Raspakuj u..."
+
+msgid "3. Open in archive manager"
+msgstr "3. Otvori u mnadžer arhive"
+
+msgid "4. List contents"
+msgstr "4. Sadržaj liste"
+
+msgid "5. Cancel"
+msgstr "5. Odustani"
+
+msgid "Press any key to close"
+msgstr "Pritisni bilo koje dugme za zatvaranje"
+
+msgid "Listing contents of: %s"
+msgstr "Sadržaj liste: %s"
+
+msgid "Archive: %s"
+msgstr "Arhiva %s"
+
+msgid "Extracting: %s"
+msgstr "Raspakivanje"
+
+msgid "ERROR: realpath() failed"
+msgstr "GREŠKA: realpath() neuspešno"
+
+msgid "ERROR: popen() failed"
+msgstr "GREŠKA: popen() neuspešno"
+
+msgid "Done! Press any key..."
+msgstr "Gotovo! Pritisnite bilo koji taster..."
+
+msgid "Extracting to: %s"
+msgstr "Raspakuje se u: %s"
+
+msgid "ERROR: invalid destination path"
+msgstr "GREŠKA: nevažeća putanja odredišta"
+
+msgid "No radio stations found."
+msgstr "Nije pronađena nijedna radio stanica."
+
+msgid "Station name: "
+msgstr "Naziv stanice: "
+
+msgid "Station URL: "
+msgstr "Adresa stanice: "
+
+msgid "LIVE: ONLINE"
+msgstr "UŽIVO: NA MREŽI"
+
+msgid "LIVE: PAUSE"
+msgstr "UŽIVO: PAUZIRANO"
+
+msgid "LIVE: OFFLINE"
+msgstr "UŽIVO: VAN MREŽE"
+
+msgid "tmuzika - RADIO"
+msgstr "tmuzika - RADIO"
+
+msgid "Are you sure you want to delete radio station '%s'? (y/N): "
+msgstr "Da li ste sigurni da želite da obrišete radio stanicu '%s'? (d/n): "
+
+msgid "Are you sure you want to delete all radio stations? (y/N): "
+msgstr "Da li ste sigurni da želite da obrišete sve radio stanice? (d/n): "
+
+msgid "Search radio station: "
+msgstr "Traži radio stanicu: "
+
+msgid " Station not found: %s "
+msgstr " Stanica nije pronađena: %s "
+
+msgid "Radio stations: %d"
+msgstr "Radio stanice: %d"
+
+msgid " %s Playlist not loaded, no radio streams found "
+msgstr " %s Lista nije učitana, nisu pronađeni radio strimovi "
+
+msgid " %s Playlist not loaded, contains URL stream "
+msgstr " %s Lista nije učitana, sadrži URL strim "
+
+msgid " %s File not loaded, no radio streams found "
+msgstr " %s Datoteka nije učitana, nisu pronađeni radio strimovi "
+
+msgid "ENTER = play radio station"
+msgstr "ENTER = pusti radio stanicu"
+
+msgid "d = add radio station"
+msgstr "d = dodaj radio stanicu"
+
+msgid "u = load radio station m3u playlist"
+msgstr "u = učitaj m3u listu radio stanica"
+
+msgid "v = go to the current radio station"
+msgstr "v = idi na trenutno pustenu radio stanicu"
+
+msgid "x = delete radio station from playlist"
+msgstr "x = obriši radio stanicu iz liste"
+
+msgid "DELETE = delete all radio station from playlist"
+msgstr "DELETE = obriši kompletnu listu radio stanica"
+
+msgid "HOME = go to the first radio station"
+msgstr "HOME = pređi na prvu radio stanicu"
+
+msgid "END = go to the last radio station"
+msgstr "END = pređi na poslednju radio stanicu"
+
+msgid "ESC = quit"
+msgstr "ESC = izađi"
+
+msgid " ENTER/SPACE:play/pause ↑↓:move m:manager s:search ESC:quit "
+msgstr " ENTER/SPACE:pusti/pauza ↑↓:pomeraj m:menadžer s:traži ESC:izađi "
+
+msgid "Time: %s"
+msgstr "Vreme: %s"
+
+msgid "Date: %s"
+msgstr "Datum: %s"
+
+msgid "Playlist is empty"
+msgstr "Lista je prazna"
+
+msgid " Error: '%s' is not a valid file.\n"
+msgstr " Greška: '%s' nije važeća datoteka.\n"
+
+msgid "  -r, --radio <stream>      Play a radio stream or load an radio m3u\n"
+msgstr "  -r, --radio <stream>      Pustite radio strim ili učitajte radio m3u\n"
+
+msgid "Error: .m3u file '%s' contains no streams.\n"
+msgstr "Greška: .m3u datoteka '%s' ne sadrži strimove.\n"
+
+msgid "Error: File does not exist: '%s'\n"
+msgstr "Greška: Datoteka ne postoji: '%s'\n"
+
+msgid "[ = scroll left, ] = scroll right"
+msgstr "[ = pomeri levo, ] = pomeri desno"
+
+msgid " All radio stations have been deleted "
+msgstr " Lista je pražna "
+
+msgid " The radio station '%s' has been deleted "
+msgstr " Radio stanica '%s' je obrisana "
+
+msgid "Shuffle: ON"
+msgstr "Nasumično: UKLjUČEN"
+
+msgid "e = shuffle"
+msgstr "e = nasumično"
+
+msgid "TMUZIKA color configuration"
+msgstr "TMUZIKA konfiguracija boja"
+
+msgid " key bindings "
+msgstr " prečice "
+
+msgid " colors "
+msgstr " boje "
+
+msgid "tradio - key bindings"
+msgstr "tradio - prečice"
+
+msgid "Configuration files"
+msgstr "Konfiguracioni dokumenti"
+
+msgid "Select a config file to open in editor"
+msgstr "Izaberite dokument za uređivanje"
+
+msgid " ENTER=open  ESC=quit "
+msgstr " ENTER=otvori  ESC=izađi "
+
+msgid "Are you sure you want to reset color configuration? (y/N)"
+msgstr "Da li ste sigurni da želite da resetujete konfiguraciju boja? (d/N)"
+
+msgid "Are you sure you want to reset command configuration? (y/N)"
+msgstr "Da li ste sigurni da želite da resetujete konfiguraciju komandi? (d/N)"
+
+msgid "o = Open configuration (colors / key bindings)"
+msgstr "o = Otvori podešavanja (boje / prečice)"
+
+msgid "- o = Open configuration (colors / key bindings)"
+msgstr "- o = Otvori podešavanja (boje / prečice)"
+
+msgid "? = help"
+msgstr "? = Pomoć"
+
+msgid "- ? = help"
+msgstr "- ? = Pomoć"
+
+msgid "play radio station"
+msgstr "pusti radio stanicu"
+
+msgid "add radio station"
+msgstr "dodaj radio stanicu"
+
+msgid "go to the current radio station"
+msgstr "pređi na trenutnu pesmu radio stanicu"
+
+msgid "delete radio station"
+msgstr "obriši radio stanicu"
+
+msgid "go to the first radio station"
+msgstr "pređi na prvu radio stanicu"
+
+msgid "go to the last radio station"
+msgstr "pređi na poslednju radio stanicu"
+
+msgid " ENTER:open h:reset key b:reset color ESC:quit "
+msgstr " ENTER:open h:resetuj prečice b:resetuj boje ESC:quit "

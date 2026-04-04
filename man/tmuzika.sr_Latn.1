@@ -1,0 +1,313 @@
+.TH TMUZIKA 1 "Мart 2026" "tmuzika 1.1.2" "Korisnicke komande"
+.SH NAME
+tmuzika \- terminalni muzicki plejer sa integrisanim fajl menadzerom, plejlistom i CLI podrskom
+
+.SH SYNOPSIS
+.B tmuzika
+.RI [ opcije ] 
+.TP
+.B -p <fajl> ili <Fascikla/> ili <m3u>
+Pusti jedan audio fajl ili učitaj fasciklu ili ucitaj m3u plejlistu.
+.TP
+.B -r <url>
+Pusti radio stanicu ili pusti m3u radio listu.
+
+
+.SH DESCRIPTION
+.B tmuzika
+je terminalni muzicki plejer napisan u C programskom jeziku, koristi ncurses za interfejs i GStreamer za reprodukciju zvuka.  
+Sadrzi integrisani fajl menadzer, podrsku za plejliste, upravljanje preko tastature, CLI režim, obelezivace (bookmarks) i potpunu medjunarodnu podrsku (i18n).
+
+Interfejs je dizajniran za efikasnu navigaciju tastaturom.  
+Fajl menadzer omogucava dodavanje pojedinacnih fajlova ili **celih foldera sa svom muzikom unutra**.
+
+.TP
+.B Conky integracija
+tmuzika može da izveze informacije o trenutnoj reprodukciji u privremene fajlove u /tmp.  
+Ovi fajlovi mogu biti prikazani spoljnim alatima kao što je Conky:
+.RS
+/tmp/tmuzika_status
+/tmp/tmuzika_title
+/tmp/tmuzika_artist
+/tmp/tmuzika_album
+/tmp/tmuzika_track
+/tmp/tmuzika_elapsed
+/tmp/tmuzika_length
+.RE
+.TP
+Primer Conky skripta:
+.RS
+TEXT
+${if_running tmuzika}
+${if_match "${env LANG}" "sr_RS.UTF-8"}
+• Слушам: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Извођач: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Албум: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Трака бр.: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Преостало: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}${if_match "${env LANG}" "sr_RS@latin.UTF-8"}
+• Slušam: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Izvođač: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Numera: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Vreme: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${else}
+• Now playing: ${execi 3 grep -m1 . /tmp/tmuzika_status} ${execi 2 grep -m1 . /tmp/tmuzika_title}
+Artist: ${execi 3 grep -m1 . /tmp/tmuzika_artist}
+Album: ${execi 3 grep -m1 . /tmp/tmuzika_album}
+Track: ${execi 3 grep -m1 . /tmp/tmuzika_track}
+Time: ${execi 3 grep -m1 . /tmp/tmuzika_elapsed} | ${execi 2 grep -m1 . /tmp/tmuzika_length}
+${endif}
+${endif}
+${else}
+${endif}
+.RE
+.TP
+Napomena: Conky mora biti instaliran i pokrenut, a tmuzika mora reprodukovati audio.
+
+
+.SH FEATURES
+.TP
+.B Reprodukcija zvuka
+Pustanje pojedinacnih audio fajlova ili plejlista (.m3u).
+
+.TP
+.B Fajl menadzer
+Pregled direktorijuma, kopiranje, secenje, lepljenje, preimenovanje, brisanje fajlova, undo operacije, pretraga, upravljanje obelezivacima i dodavanje celih foldera sa muzikom.
+
+.TP
+.B Plejliste
+Snimanje/ucitavanje m3u plejlista, skok na trenutnu pesmu, brisanje pesama i opcije repitacije.
+
+.TP
+.B CLI rezim
+Pustanje pesme ili plejliste direktno iz terminala:
+.RS
+$ tmuzika -p pesma.mp3  
+$ tmuzika -p plejlista.m3u
+$ tmuzika -p fascikla/  
+$ tmuzika -r url-radio.stanica
+$ tmuzika -r radio.m3u  
+$ tmuzika -h
+$ tmuzika --play pesma.mp3  
+$ tmuzika --play plejlista.m3u
+$ tmuzika --play fascikla/  
+$ tmuzika --radio url-radio.stanica
+$ tmuzika --radio radio.m3u  
+$ tmuzika --help    
+.RE
+
+.TP
+.B Kontrola tastaturom
+Sve funkcije su dostupne preko intuitivnih tasterskih kombinacija.
+
+.TP
+.B Medjunarodna podrška
+Podrzava vise jezika, ukljucujuci engleski, srpski cirilicu i srpski latinicu.
+
+
+.SH KEY BINDINGS
+
+.SS Reprodukcija
+.TP
+.B ENTER
+Pusti izabranu pesmu.
+.TP
+.B SPACE
+Pauza / nastavak.
+.TP
+.B [
+Pomeri levo.
+.TP
+.B ]
+Pomeri desno.
+.TP
+.B z
+Stop reprodukcije.
+.TP
+.B d
+Dodaj radio stanicu.
+.TP
+.B >
+Sledeca pesma / radio stanica.
+.TP
+.B <
+Prethodna pesma / radio stanica.
+.TP
+.B +
+Povecaj jacinu zvuka.
+.TP
+.B -
+Smanji jacinu zvuka.
+.TP
+.B <-
+Vrati 10 sekundi unazad.
+.TP
+.B ->
+Preskoci 10 sekundi napred.
+.TP
+.B s
+Pretraga.
+.TP
+.B o
+Otvori meni konfiguracije (boje / prečice) iz bilo kog režima
+.TP
+.B h
+Resetuj prečice
+.TP
+.B b
+Resetuj boje
+.TP
+.B p
+Ponovi tekuću pesmu.
+.TP
+.B l
+Ponovi celu plejlistu.
+.TP
+.B e
+Nasumično.
+.TP
+.B r
+Radio mod.
+.TP
+.B m
+Menadžer datoteka.
+.TP
+.B q
+Sačuvaj m3u listu.
+.TP
+.B u
+Učitaj m3u listu / m3u radio listu.
+.TP
+.B v
+Idi na trenutnu pesmu / radio stanicu.
+.TP
+.B x
+Obriši pesmu / radio stanicu sa liste.
+.TP
+.B DELETE
+Obriši sve pesme / radio stanice sa liste.
+.TP
+.B HOME
+Idi na prvu pesmu.
+.TP
+.B END
+Idi na poslednju pesmu.
+.TP
+.B ?
+Prikazi ekran pomoći za trenutni režim
+.TP
+.B k
+Izlaz iz programa.
+
+.SS Fajl menadzer
+.TP
+.B ENTER
+Udi u direktorijum / dodaj pesmu / dodaj .m3u plejlistu / radio m3u.
+.TP
+.B BACKSPACE
+Vrati se.
+.TP
+.B ctrl+h
+Prikazi/sakrij skrivene fajlove.
+.TP
+.B f / F
+Dodaj folder / dodaj trenutni folder (sva muzika unutra se dodaje automatski).
+.TP
+.B m
+Izaberi fajlove / foldere.
+.TP
+.B ctrl+a
+Izaberi sve fajlove.
+.TP
+.B d
+Dodaj vise fajlova.
+.TP
+.B s
+Pretraga.
+.TP
+.B o
+Otvori meni konfiguracije (boje / prečice) iz bilo kog režima
+.TP
+.B ctrl+n
+Kreiraj novi folder.
+.TP
+.B ctrl+t
+Kreiraj novi fajl.
+.TP
+.B F2
+Preimenuj fajl / folder.
+.TP
+.B c
+Kopiraj.
+.TP
+.B x
+Iseci.
+.TP
+.B v
+Zalepi.
+.TP
+.B u
+Opozovi poslednju akciju (undo).
+.TP
+.B ctrl+p
+Promeni dozvole fajla (chmod).
+.TP
+.B ctrl+o
+Otvori terminal.
+.TP
+.B DELETE
+Ukloni fajl / folder.
+.TP
+.B ctrl+b
+Dodaj obelezivac.
+.TP
+.B ctrl+d
+Ukloni obelezivac.
+.TP
+.B 1-9
+Idi na obelezivac 1–9.
+.TP
+.B ?
+Prikazi ekran pomoći za trenutni režim
+.TP
+.B ESC
+Izadji iz fajl menadzera.
+
+
+.SH ENVIRONMENT
+.TP
+.B LANG, LC_ALL
+Koristi se za odredjivanje jezika interfejsa.
+
+.TP
+.B HOME/.tmuzika
+Korisnicki konfiguracioni i podatacki direktorijum (plejliste, kes, podesavanja itd.).
+
+
+.SH EXIT STATUS
+.TP
+.B 0
+Uspesno izvrsenje.
+.TP
+.B 1
+Doslo je do greske.
+
+
+.SH FILES
+.TP
+.I ~/.tmuzika/
+Korisnicki konfiguracioni i podatacki direktorijum (plejliste, kes, podesavanja itd.).
+
+
+.SH AUTHOR
+Ivan Janković
+
+
+.SH LICENSE
+GNU General Public License v3.0 ili novija.
+
+
+.SH SEE ALSO
+.BR ncurses (3),
+.BR gstreamer (1)
