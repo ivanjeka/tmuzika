@@ -36,17 +36,19 @@ You need the following packages installed:
 - ncurses
 - glib2
 - gstreamer
+- gst-plugins-base
+- gst-plugins-good
 
 ### Arch Linux
 
 ```bash
-sudo pacman -S gcc make pkgconf ncurses glib2 gstreamer
+sudo pacman -S gcc make pkgconf ncurses glib2 gstreamer gst-plugins-base gst-plugins-good
 ```
 
 ### DEBIAN / UBUNTU
 
 ```bash
-sudo apt install build-essential pkg-config libncurses5-dev libglib2.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-tools
+sudo apt install build-essential pkg-config libncurses5-dev libglib2.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-tools gstreamer1.0-plugins-good
 ```
 
 ### FEDORA
@@ -54,6 +56,17 @@ sudo apt install build-essential pkg-config libncurses5-dev libglib2.0-dev libgs
 ```bash
 sudo dnf install gcc make pkg-config ncurses-devel glib2-devel gstreamer1-devel gstreamer1-plugins-base-devel
 ```
+
+## Troubleshooting
+
+### No audio / playback fails
+
+Make sure you have installed GStreamer plugins:
+
+- gst-plugins-base
+- gst-plugins-good
+
+Without these, tmuzika may start but fail to play audio.
 
 ### Build from Source
 
